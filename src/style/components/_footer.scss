@@ -21,7 +21,7 @@ $hover-color: #0056b3;
   }
 
   .section {
-    
+
     flex: 1 1 30%;
     min-width: 250px;
 
@@ -41,7 +41,7 @@ $hover-color: #0056b3;
 
     // Liens d'emplacement
     ul {
-      list-style-type: none;
+      // list-style-type: none;
       padding: 0;
 
       li {
@@ -49,7 +49,7 @@ $hover-color: #0056b3;
         text-align: left;
 background-color: red;
         a {
-          
+
           font-size: 1rem;
           text-decoration: none;
           color: $primary-color;

@@ -9,14 +9,37 @@ const Reservation = () => {
   const [userEmail, setUserEmail] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [selectedServiceInfo, setSelectedServiceInfo] = useState('');
+  const [selectedServiceImage, setSelectedServiceImage] = useState('');
 
-  // Liste des services
+  // Liste des services avec images
   const services = [
-    'Coupe de cheveux',
-    'Coloration',
-    'Permanente',
-    'Coiffure spéciale',
-    'Lissage Brésilien',
+    {
+      name: 'Coupe de cheveux',
+      image: '/images/coupe.jpg',
+      description:
+        'Profitez d’une coupe de cheveux moderne et adaptée à votre style.',
+    },
+    {
+      name: 'Coloration',
+      image: '/images/coloration.jpg',
+      description: 'Coloration professionnelle pour illuminer votre look.',
+    },
+    {
+      name: 'Permanente',
+      image: '/images/permanente.jpg',
+      description:
+        'Obtenez des boucles parfaites avec notre service de permanente.',
+    },
+    {
+      name: 'Coiffure spéciale',
+      image: '/images/coiffure-speciale.jpg',
+      description: 'Des coiffures uniques pour toutes les occasions spéciales.',
+    },
+    {
+      name: 'Lissage Brésilien',
+      image: '/images/lissage.jpg',
+      description: 'Un lissage parfait pour des cheveux lisses et brillants.',
+    },
   ];
 
   // Dates disponibles
@@ -56,10 +79,9 @@ const Reservation = () => {
 
   // Ouvrir le pop-up
   const handleCardClick = (service) => {
-    setSelectedService(service);
-    setSelectedServiceInfo(
-      `${service} : Profitez d'un service de qualité dans notre salon de coiffure.`
-    );
+    setSelectedService(service.name);
+    setSelectedServiceInfo(service.description);
+    setSelectedServiceImage(service.image);
     setShowPopup(true);
   };
 
@@ -70,7 +92,7 @@ const Reservation = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-8 space-y-8">
-      {/* Modale Popup */}
+     
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <motion.div
@@ -82,6 +104,13 @@ const Reservation = () => {
             <h3 className="text-2xl font-semibold text-teal-600 mb-4">
               {selectedService}
             </h3>
+            <div className="flex justify-center mb-4">
+              <img
+                src={selectedServiceImage}
+                alt={selectedService}
+                className="w-32 h-32 object-cover rounded-lg"
+              />
+            </div>
             <p className="text-lg text-gray-800 mb-4">{selectedServiceInfo}</p>
             <div className="text-gray-800">
               <p>
@@ -135,18 +164,15 @@ const Reservation = () => {
                 <motion.div
                   key={index}
                   className={`p-4 border-2 rounded-lg cursor-pointer hover:bg-teal-100 transition duration-300 ${
-                    selectedService === service
+                    selectedService === service.name
                       ? 'bg-teal-100 text-teal-600'
                       : 'bg-white text-teal-600'
                   }`}
                   onClick={() => handleCardClick(service)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}>
-                  <h4 className="text-xl font-semibold">{service}</h4>
-                  <p className="text-sm mt-2">
-                    Profitez de ce service exceptionnel dans notre salon de
-                    coiffure.
-                  </p>
+                  <h4 className="text-xl font-semibold">{service.name}</h4>
+                  <p className="text-sm mt-2">{service.description}</p>
                 </motion.div>
               ))}
             </div>

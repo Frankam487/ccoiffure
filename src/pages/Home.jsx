@@ -6,13 +6,13 @@ const Home = () => {
   return (
     <div className="home">
       <Header />
-      <div className="home-content">
+      <div className="bg-slate-100 home-content">
         <h1>
           Bienvenue
           <br />
           chez nous
         </h1>
-        <div className="consignes-container px-22 w-4/5">
+        <div className="consignes-container px-22 w-4/5 ">
           <p className=" font-serif text-[13px] py-20 w-full">
             Merci infiniment pour l’intérêt que vous portez à mes services. Afin
             de rendre votre expérience aussi simple qu’agréable, veuillez
@@ -42,39 +42,46 @@ const Home = () => {
           <h3 className="text-[18px]">NB:</h3>
           <ol>
             <li>
-              <span className="text-red-600 font-semibold px-2">1.</span> Veuillez
-              également noter que tous les rendez-vous du matin débutent à 8h00
-              ou 9h00, selon votre sélection.
+              <span className="text-red-600 font-semibold px-2">1.</span>{' '}
+              Veuillez également noter que tous les rendez-vous du matin
+              débutent à 8h00 ou 9h00, selon votre sélection.
             </li>
 
             <li>
-              <span className="text-red-600 px-2 font-semibold">2.</span> À partir de
-              janvier 2025, les mèches seront incluses dans le prix
+              <span className="text-red-600 px-2 font-semibold">2.</span> À
+              partir de janvier 2025, les mèches seront incluses dans le prix
             </li>
           </ol>
 
-          <i className="text-red-600 font-bold">PAIEMENT</i>
-
-          <h3>Courriel : b.expresssaloon@gmail.com</h3>
-          <h3>Question : beauty</h3>
-          <h3>Réponse : express</h3>
+          <div className="text-center p-4">
+            <i className="text-red-600 font-bold">PAIEMENT</i>
+          </div>
           <p>
+            *Un dépôt de 30 $ (non remboursable) est requis via Interac pour
+            confirmer votre rendez-vous.
+          </p>
+          <h6 className="font-bold">Courriel : b.expresssaloon@gmail.com</h6>
+          <h6 className="font-bold">Question : beauty</h6>
+          <h6 className="font-bold">Réponse : express</h6>
+          <p className="my-4">
             Le solde restant devra être réglé uniquement en espèces le jour du
             rendez-vous. (Le montant du dépôt sera déduit du total final.)
           </p>
-          <h3>À NE PAS FAIRE :</h3>
+          <h3 className="text-[15px] font-semibold my-8">À NE PAS FAIRE :</h3>
           <ul>
             <li>
               Se présenter accompagné d’enfants ou d’amis, sauf exception
               préalable. (L’espace étant limité.)
             </li>
           </ul>
-          <h3>À FAIRE :</h3>
+          <h3 className="text-[15px] font-semibold my-8">À FAIRE :</h3>
           <ul>
             <li>Se présenter avec des cheveux propres et bien démêlés.</li>
             <li>
-              Pour des knotless braids, il est fortement recommandé de lisser
-              (blow-dry) vos cheveux afin d’obtenir un résultat optimal.
+              Pour des{' '}
+              <span className="text-black font-semibold">knotless braids</span>,
+              il est fortement recommandé de lisser (blow-dry) vos cheveux afin
+              d’obtenir un résultat optimal.
             </li>
             <li>
               Arriver à l’heure le jour du rendez-vous. (Tout retard de plus de
@@ -82,12 +89,17 @@ const Home = () => {
               rendez-vous.)
             </li>
             <li>
-              Apporter des mèches prêtes à l’emploi (pré-étirées/pre-stretched).
+              Apporter des mèches prêtes à l’emploi (
+              <span className="font-semibold">pré-étirées/pre-stretched</span>).
             </li>
           </ul>
 
-          <h4>Merci de nous avoir choisis, et au plaisir de vous sublimer!</h4>
-          <h4>À bientôt :)</h4>
+          <div className="my-8">
+            <h4 className="text-[16px] my-8">
+              Merci de nous avoir choisis, et au plaisir de vous sublimer!
+            </h4>
+            <h4 className="text-[16px]">À bientôt :)</h4>
+          </div>
         </div>
         <Reservations />
       </div>

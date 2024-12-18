@@ -9,11 +9,11 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-800 flex justify-between items-center p-4  text-white shadow-lg">
-     
+    <header className="bg-gray-400 flex justify-between items-center p-4  text-white shadow-lg">
+
       <div className="logo text-2xl font-bold"></div>
 
-      {/* Menu hamburger pour petits écrans */}
+
       <div className="lg:hidden flex items-center">
         <button
           onClick={toggleMenu}
@@ -36,13 +36,13 @@ const Header = () => {
           className={`bg-gray-800 p-6 rounded-lg space-y-4 text-center w-60 transform transition-all duration-300 ${
             isOpen ? 'scale-100' : 'scale-95'
           }`}
-          onClick={(e) => e.stopPropagation()} 
+          onClick={(e) => e.stopPropagation()}
         >
           <ul className="space-y-2 flex justify-center items-center flex-col">
             <li className=''>
               <NavLink className="block no-underline text-cyan-300 py-2 hover:text-gray-400" to="/">Home</NavLink>
             </li>
-            <li className="md:bg-black">
+            <li className="">
               <NavLink className=" block no-underline py-2 text-cyan-300 hover:text-gray-400" to="/about">A propos</NavLink>
             </li>
             <li>

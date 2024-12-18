@@ -1,176 +1,271 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion'; // Pour les animations de transition
 
 const Reservation = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    service: 'Medium / Large Box-Braids',
-    date: '',
-    time: '',
-    additionalServices: [],
-  });
+  const [step, setStep] = useState(1);
+  const [selectedService, setSelectedService] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedServiceInfo, setSelectedServiceInfo] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  // Liste des services
+  const services = [
+    'Coupe de cheveux',
+    'Coloration',
+    'Permanente',
+    'Coiffure spéciale',
+    'Lissage Brésilien',
+  ];
+
+  // Dates disponibles
+  const availableDates = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
+
+  // Informations du propriétaire du site web
+  const ownerInfo = {
+    name: 'Salon Élégance',
+    email: 'contact@salon-elégance.com',
+    phone: '123-456-7890',
   };
 
-  const handleCheckboxChange = (e) => {
-    const { value, checked } = e.target;
-    setFormData((prevData) => {
-      const updatedServices = checked
-        ? [...prevData.additionalServices, value]
-        : prevData.additionalServices.filter((service) => service !== value);
-      return { ...prevData, additionalServices: updatedServices };
-    });
+  // Animation settings
+  const animationSettings = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -30 },
+    transition: { duration: 0.5, ease: 'easeOut' },
   };
 
+  // Étape suivante
+  const handleNextStep = () => {
+    setStep(step + 1);
+  };
+
+  // Étape précédente
+  const handlePrevStep = () => {
+    setStep(step - 1);
+  };
+
+  // Soumettre la réservation
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Réservation envoyée');
+    alert(`Réservation pour ${selectedService} confirmée!`);
+    setStep(4); // Passer à la confirmation
+  };
+
+  // Ouvrir le pop-up
+  const handleCardClick = (service) => {
+    setSelectedService(service);
+    setSelectedServiceInfo(
+      `${service} : Profitez d'un service de qualité dans notre salon de coiffure.`
+    );
+    setShowPopup(true);
+  };
+
+  // Fermer le pop-up
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10">
-      <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">
-          Réservez votre rendez-vous
-        </h2>
-
-        <div className="mb-6">
-          <p className="text-lg text-gray-600">
-            Veuillez remplir le formulaire ci-dessous pour réserver votre
-            créneau.
-          </p>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="name" className="block text-gray-700">
-                Nom complet
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+    <div className="max-w-4xl mx-auto p-8 space-y-8">
+      {/* Modale Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <motion.div
+            className="bg-white p-8 rounded-lg shadow-xl w-96"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={animationSettings.transition}>
+            <h3 className="text-2xl font-semibold text-teal-600 mb-4">
+              {selectedService}
+            </h3>
+            <p className="text-lg text-gray-800 mb-4">{selectedServiceInfo}</p>
+            <div className="text-gray-800">
+              <p>
+                <strong>Propriétaire:</strong> {ownerInfo.name}
+              </p>
+              <p>
+                <strong>Email:</strong>{' '}
+                <a href={`mailto:${ownerInfo.email}`} className="text-teal-600">
+                  {ownerInfo.email}
+                </a>
+              </p>
+              <p>
+                <strong>Téléphone:</strong> {ownerInfo.phone}
+              </p>
             </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-gray-700">
-                Numéro de téléphone
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <label htmlFor="date" className="block text-gray-700">
-              Date
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mt-6">
-            <label htmlFor="time" className="block text-gray-700">
-              Heure
-            </label>
-            <input
-              type="time"
-              id="time"
-              name="time"
-              className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md"
-              value={formData.time}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mt-6">
-            <p className="text-lg text-gray-800 font-semibold">
-              Services supplémentaires
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="neckLength"
-                  value="18- NECK LENGTH"
-                  checked={formData.additionalServices.includes(
-                    '18- NECK LENGTH'
-                  )}
-                  onChange={handleCheckboxChange}
-                  className="mr-2"
-                />
-                <label htmlFor="neckLength" className="text-gray-700">
-                  +18- NECK LENGTH (-20,00 $CA)
-                </label>
-              </div>
-
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="bohoStyle"
-                  value="4- BOHO STYLE"
-                  checked={formData.additionalServices.includes(
-                    '4- BOHO STYLE'
-                  )}
-                  onChange={handleCheckboxChange}
-                  className="mr-2"
-                />
-                <label htmlFor="bohoStyle" className="text-gray-700">
-                  +4- BOHO STYLE (1 heure à 30,00 $CA)
-                </label>
-              </div>
-
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="xHair"
-                  value="5- X Pression pre-stretched hair 42 pouces (1b or 2)"
-                  checked={formData.additionalServices.includes(
-                    '5- X Pression pre-stretched hair 42 pouces (1b or 2)'
-                  )}
-                  onChange={handleCheckboxChange}
-                  className="mr-2"
-                />
-                <label htmlFor="xHair" className="text-gray-700">
-                  +5- X Pression pre-stretched hair (1 minute à 30,00 $CA)
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
             <button
-              type="submit"
-              className="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-              Confirmer la réservation
+              onClick={closePopup}
+              className="mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 hover:bg-teal-600 transition-all duration-300">
+              Fermer
             </button>
-          </div>
-        </form>
-      </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Formulaire de Réservation */}
+      <motion.div
+        className="bg-white p-8 rounded-lg shadow-xl"
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={animationSettings.transition}>
+        <h2 className="text-3xl font-bold text-teal-600 text-center mb-4">
+          Réservez Votre Rendez-vous
+        </h2>
+        <p className="text-lg text-gray-700 text-center mb-8">
+          Choisissez vos services et détails pour une expérience de coiffure
+          exceptionnelle.
+        </p>
+
+        {step === 1 && (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={animationSettings.transition}>
+            <h3 className="text-2xl font-semibold text-teal-600 mb-4">
+              Choisissez un Service
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {services.map((service, index) => (
+                <motion.div
+                  key={index}
+                  className={`p-4 border-2 rounded-lg cursor-pointer hover:bg-teal-100 transition duration-300 ${
+                    selectedService === service
+                      ? 'bg-teal-100 text-teal-600'
+                      : 'bg-white text-teal-600'
+                  }`}
+                  onClick={() => handleCardClick(service)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <h4 className="text-xl font-semibold">{service}</h4>
+                  <p className="text-sm mt-2">
+                    Profitez de ce service exceptionnel dans notre salon de
+                    coiffure.
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+            <button
+              onClick={handleNextStep}
+              disabled={!selectedService}
+              className={`mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 disabled:bg-gray-400 transition-all duration-300 hover:bg-teal-600`}>
+              Continuer
+            </button>
+          </motion.div>
+        )}
+
+        {step === 2 && (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={animationSettings.transition}>
+            <h3 className="text-2xl font-semibold text-teal-600 mb-4">
+              Choisissez une Date
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              {availableDates.map((date, index) => (
+                <motion.div
+                  key={index}
+                  className={`p-4 border-2 rounded-lg cursor-pointer hover:bg-teal-100 transition duration-300 ${
+                    selectedDate === date
+                      ? 'bg-teal-100 text-teal-600'
+                      : 'bg-white text-teal-600'
+                  }`}
+                  onClick={() => setSelectedDate(date)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <h4 className="text-xl font-semibold">{date}</h4>
+                  <p className="text-sm mt-2">
+                    Réservez votre créneau pour ce jour-là.
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+            <button
+              onClick={handlePrevStep}
+              className="mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 transition-all duration-300 hover:bg-teal-600 mr-4">
+              Retour
+            </button>
+            <button
+              onClick={handleNextStep}
+              disabled={!selectedDate}
+              className={`mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 disabled:bg-gray-400 transition-all duration-300 hover:bg-teal-600`}>
+              Continuer
+            </button>
+          </motion.div>
+        )}
+
+        {step === 3 && (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={animationSettings.transition}>
+            <h3 className="text-2xl font-semibold text-teal-600 mb-4">
+              Informations Personnelles
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="text-teal-600 block mb-2">Nom</label>
+                <input
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  className="w-full p-3 border-2 rounded-lg text-gray-700"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-teal-600 block mb-2">Email</label>
+                <input
+                  type="email"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  className="w-full p-3 border-2 rounded-lg text-gray-700"
+                  required
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 hover:bg-teal-600 transition-all duration-300">
+                  Réserver Maintenant
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        )}
+
+        {step === 4 && (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={animationSettings.transition}>
+            <h3 className="text-2xl font-semibold text-teal-600 mb-4">
+              Réservation Confirmée!
+            </h3>
+            <p className="text-lg text-teal-600">
+              Merci {userName}! Votre réservation pour {selectedService} le{' '}
+              {selectedDate} a bien été prise en compte.
+            </p>
+            <p className="text-teal-600 mt-4">
+              Un e-mail de confirmation vous a été envoyé.
+            </p>
+            <button
+              onClick={() => setStep(1)}
+              className="mt-6 px-6 py-3 rounded-lg text-white bg-teal-500 hover:bg-teal-600 transition-all duration-300">
+              Réserver un autre service
+            </button>
+          </motion.div>
+        )}
+      </motion.div>
     </div>
   );
 };

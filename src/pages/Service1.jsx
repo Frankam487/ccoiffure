@@ -21,7 +21,7 @@ const Service1 = () => {
           </div>
           <button
             onClick={() => handleSelect(1)} // Appeler handleSelect avec l'ID du service
-            className="w-full h-[45px] sm:w-auto bg-black text-white py-6 shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition-all duration-300 transform hover:scale-105">
+            className="w-full sm:w-auto h-[45px] bg-black text-white py-2 shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition-all duration-300 transform hover:scale-105">
             Sélectionner
           </button>
         </div>
@@ -55,12 +55,12 @@ const Service1 = () => {
         {/* Service 4 */}
         <div className="cards shadow-md bg-blue-50 flex justify-center items-center w-full p-7">
           <div className="text">
-            <h6>Medium/Large Box-Braids</h6>
+            <h6 className="">Medium/Large Box-Braids</h6>
             <em>3h à 100 FA</em>
           </div>
           <button
             onClick={() => handleSelect(4)} // Appeler handleSelect avec l'ID du service
-            className="w-full sm:w-auto h-[35px] bg-black text-white py-2 shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition-all duration-300 transform hover:scale-105">
+            className="w-full sm:w-auto h-[45px] bg-black text-white py-2 shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition-all duration-300 transform hover:scale-105">
             Sélectionner
           </button>
         </div>

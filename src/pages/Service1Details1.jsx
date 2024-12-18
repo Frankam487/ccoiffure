@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import RendezVous from '../components/RendezVous';
-const ServiceOptions = () => {
+
+const Service1Details1 = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [availability, setAvailability] = useState([]);
   const [daysOfYear, setDaysOfYear] = useState([]);
@@ -10,44 +11,40 @@ const ServiceOptions = () => {
     {
       id: 1,
       label: 'BAS DU DOS / WAIST LENGHT',
-      availableDays: ['Dimanche', 'Lundi', 'Mardi'],
+      availableDays: ['Lundi', 'Jeudi'],
     },
     {
       id: 2,
       label: 'DETANGLING BRUSH / BROSSE DEMELANTE',
-      availableDays: ['Jeudi', 'Vendredi'],
+      availableDays: ['Mardi', 'Samedi'],
     },
     {
       id: 3,
       label: 'BONNET EN SATIN (Large) / African print satin head cap',
-      availableDays: ['Samedi', 'Dimanche'],
+      availableDays: ['Mercredi', 'Dimanche'],
     },
     {
       id: 4,
       label: 'HUILE POUSSE PLUS / ANTI-PELLICULAIRE',
-      availableDays: ['Lundi', 'Mercredi'],
+      availableDays: ['Lundi', 'Vendredi'],
     },
-    {
-      id: 5,
-      label: 'BOUTEILLE DE SPRAY',
-      availableDays: ['Mardi', 'Jeudi', 'Vendredi'],
-    },
+    { id: 5, label: 'BOUTEILLE DE SPRAY', availableDays: ['Mardi', 'Jeudi'] },
     {
       id: 6,
       label: 'CREME POUSSE PLUS ENRICHIE AU MORINGA',
-      availableDays: ['Samedi', 'Lundi'],
+      availableDays: ['Samedi', 'Dimanche'],
     },
-    { id: 7, label: 'NECK LENGTH', availableDays: ['Dimanche', 'Vendredi'] },
+    { id: 7, label: 'NECK LENGTH', availableDays: ['Lundi', 'Samedi'] },
     {
       id: 8,
       label: 'MELANGE DE COULEURS',
-      availableDays: ['Mardi', 'Mercredi', 'Samedi'],
+      availableDays: ['Mercredi', 'Jeudi'],
     },
-    { id: 9, label: 'BOHO STYLE', availableDays: ['Lundi', 'Jeudi'] },
+    { id: 9, label: 'BOHO STYLE', availableDays: ['Dimanche', 'Vendredi'] },
     {
       id: 10,
       label: 'X Pression pre streched hair 42 pouces (1b or 2)',
-      availableDays: ['Mercredi', 'Vendredi'],
+      availableDays: ['Lundi', 'Jeudi'],
     },
   ];
 
@@ -69,6 +66,16 @@ const ServiceOptions = () => {
     return date.toLocaleDateString('fr-FR', options);
   };
 
+  // Mélanger un tableau de manière aléatoire
+  const shuffleArray = (array) => {
+    let shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
   // Gérer la sélection des options
   const handleCheckboxChange = (e) => {
     const { checked, value } = e.target;
@@ -88,8 +95,11 @@ const ServiceOptions = () => {
         (optionId) =>
           options.find((option) => option.id === optionId).availableDays
       )
-      .flat(); // Merge all selected option days into one array
-    setAvailability(availableDays);
+      .flat(); // Fusionner les jours de toutes les options sélectionnées
+
+    // Mélanger les jours de manière aléatoire
+    const shuffledDays = shuffleArray(availableDays);
+    setAvailability(shuffledDays);
   };
 
   // Filtrer les jours disponibles à partir de l'année en cours
@@ -146,7 +156,7 @@ const ServiceOptions = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-8 space-y-8">
-    <RendezVous/>
+      <RendezVous />
       <div className="bg-white p-6 shadow-lg rounded-lg">
         <h2 className="text-2xl font-semibold text-center">
           Sélectionnez vos options
@@ -171,30 +181,31 @@ const ServiceOptions = () => {
         </button>
       </div>
 
-    
       {availability.length > 0 && (
-        <div className="bg-gray-200 p-6 rounded-lg shadow-lg mt-8 relative">
-          <h3 className="text-xl font-semibold text-center mb-4">
+        <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-6 rounded-lg shadow-lg mt-8 relative overflow-hidden">
+          <h3 className="text-2xl font-semibold text-white text-center mb-4">
             Jours de Disponibilité
           </h3>
           <div className="flex items-center justify-center relative">
             <button
               onClick={goToPrev}
-              className="absolute left-0 transform -translate-x-6 bg-blue-500 text-white p-2 rounded-full shadow-lg hover:bg-blue-400 transition-all">
+              className="absolute left-0 transform -translate-x-6 bg-teal-700 text-white p-3 rounded-full shadow-lg hover:bg-teal-600 transition-all">
               &lt;
             </button>
             <div className="flex space-x-4 overflow-hidden w-full">
               {daysOfYear
-                .slice(currentIndex, currentIndex + 5)
+                .slice(currentIndex, currentIndex + 1) // Affiche une carte à la fois sur mobile
                 .map((day, index) => {
                   const { date, dayName, isAvailable } = day;
                   return (
                     <div
                       key={index}
-                      className={`min-w-[200px] p-4 bg-white shadow-md rounded-lg text-center flex-shrink-0 transition-transform ${
+                      className={`min-w-[200px] p-5 bg-white shadow-lg rounded-lg text-center flex-shrink-0 transition-transform ${
                         isAvailable ? 'transform hover:scale-105' : 'opacity-50'
                       }`}>
-                      <h4 className="text-lg font-semibold">{dayName}</h4>
+                      <h4 className="text-lg font-semibold text-teal-600">
+                        {dayName}
+                      </h4>
                       <p className="text-sm text-gray-500">{date}</p>
                       <p className="mt-2 text-sm text-green-500">
                         {isAvailable ? 'Disponible' : 'Aucun rendez-vous'}
@@ -205,7 +216,7 @@ const ServiceOptions = () => {
             </div>
             <button
               onClick={goToNext}
-              className="absolute right-0 transform translate-x-6 bg-blue-500 text-white p-2 rounded-full shadow-lg hover:bg-blue-400 transition-all">
+              className="absolute right-0 transform translate-x-6 bg-teal-700 text-white p-3 rounded-full shadow-lg hover:bg-teal-600 transition-all">
               &gt;
             </button>
           </div>
@@ -215,4 +226,4 @@ const ServiceOptions = () => {
   );
 };
 
-export default ServiceOptions;
+export default Service1Details1;

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
+  const navigate = useNavigate()
   // Utilisation de l'état pour gérer l'affichage de la carte
   const [isVisible, setIsVisible] = useState(true);
-
+const handleRendezVous = () => {
+  navigate('/reserver');
+}
   // Fonction pour fermer la carte
   const closeCard = () => {
     setIsVisible(false);
@@ -68,7 +72,7 @@ const Card = () => {
         </div>
       </div>
       <div className="px-6 py-4 bg-gray-100">
-        <button className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button onClick={handleRendezVous} className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
           Réserver maintenant
         </button>
       </div>

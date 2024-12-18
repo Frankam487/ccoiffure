@@ -19,7 +19,7 @@ const Reservations = () => {
       message: 'Boxbraids/Twist Men/Large/Medium/small',
       image: '/men1.jpg', // Utilisez le chemin relatif approprié
       description: '1 Stunde 15 Minuten @ 90,00 - 130 CHF',
-      coordinates: [5.9631, 10.1591],
+      coordinates: [46.9481, 7.4474], // Coordonnées de Berne, Suisse
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const Reservations = () => {
       image: '/ff.jpg',
       description:
         '1 Stunde 40 Minuten - 7 Stunde 30 Minuten @ 160,00 - 400 CHF',
-      coordinates: [5.9641, 10.1601],
+      coordinates: [46.9485, 7.448], // Coordonnées proches
     },
     // Ajoutez d'autres cartes ici
   ];
@@ -35,7 +35,7 @@ const Reservations = () => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    const mapInstance = L.map(mapRef.current).setView([5.9631, 10.1591], 13);
+    const mapInstance = L.map(mapRef.current).setView([46.9481, 7.4474], 13); // Carte centrée sur Berne
     setMap(mapInstance);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,10 +43,18 @@ const Reservations = () => {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(mapInstance);
 
+    // Ajout des marqueurs pour chaque carte
+    cardsData.forEach((card) => {
+      L.marker(card.coordinates)
+        .addTo(mapInstance)
+        .bindPopup(`<b>${card.message}</b><br>${card.description}`)
+        .openPopup();
+    });
+
     return () => {
       mapInstance.remove();
     };
-  }, []);
+  }, [cardsData]);
 
   const handleClick = (id) => {
     // Enregistre l'élément sélectionné
@@ -70,7 +78,7 @@ const Reservations = () => {
       <div className="reservations">
         <Header />
         <div className="container mx-auto bg-gray-100 md:flex flex-col lg:flex-row p-6 space-y-8 md:space-y-0">
-          <div className="first text-center space-y-8 p-6 sm:p-8 w-full max-w-4xl bg-white shadow-lg">
+          <div className="first text-center space-y-8 p-6 sm:p-8 w-full max-w-4xl bg-white shadow-lg rounded-lg">
             <h2 className="text-3xl font-semibold text-gray-800">
               RESERVATIONS
             </h2>
@@ -78,23 +86,23 @@ const Reservations = () => {
               Sécurisez votre rendez-vous.
             </h5>
 
-            <div className="map-container mt-8 w-full h-64 sm:h-96 md:h-[500px] lg:h-[600px] shadow-lg overflow-hidden">
-              <div id="map" ref={mapRef} className=" h-full w-full"></div>
+            <div className="map-container mt-8 w-full h-64 sm:h-96 md:h-[500px] lg:h-[600px] shadow-lg rounded-lg overflow-hidden">
+              <div id="map" ref={mapRef} className="h-full w-full"></div>
             </div>
           </div>
 
-          <div className="second -m-10 gap-8 p-6 w-full bg-slate-400 max-w-7xl mx-auto">
+          <div className="second -m-10 gap-8 p-6 w-full bg-slate-400 max-w-7xl mx-auto rounded-lg">
             {cardsData.map((card) => (
               <div
                 key={card.id}
-                className="relative bg-gray-800 mt-1 text-gray-200 p-6 shadow-lg">
+                className="relative bg-gray-800 mt-4 text-gray-200 p-6 shadow-lg rounded-lg">
                 <div className="flex justify-between items-center mb-6">
                   <div className="text-xl font-semibold text-cyan-300">
                     {card.message}
                   </div>
                   <button
                     onClick={() => handleClick(card.id)}
-                    className="px-3 bg-cyan-600 text-white shadow-md">
+                    className="px-3 bg-cyan-600 text-white shadow-md rounded-md">
                     Auswählen
                   </button>
                 </div>
@@ -109,7 +117,7 @@ const Reservations = () => {
             <div className="bg-gray-400 z-auto p-6 rounded-lg shadow-lg max-w-md w-full">
               <button
                 onClick={closePopup}
-                className="absolute top-2 right-2 text-gray-600">
+                className="absolute top-2 right-2 text-gray-600 text-xl">
                 ×
               </button>
               <h3 className="text-2xl font-semibold text-gray-800">
@@ -125,7 +133,7 @@ const Reservations = () => {
               />
               <button
                 onClick={() => handleSelect(selectedCard.id)}
-                className="selection bg-gray-800 text-white p-2 mt-4">
+                className="selection bg-gray-800 text-white p-2 mt-4 rounded-md">
                 Sélectionner
               </button>
             </div>

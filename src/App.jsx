@@ -7,6 +7,7 @@ import Service2 from "./pages/Service2";
 import Service1 from "./pages/Service1";
 
 import Service1Details1 from "./pages/Service1Details1";
+import Reservation from "./components/Reservation";
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
 
 
   <Route path="/reservations" element={<Reservations/>}/>
+  <Route path="/reserver" element={<Reservation/>}/>
  </Routes>
  </BrowserRouter>
 

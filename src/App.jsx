@@ -12,6 +12,7 @@ import Longues from './pages/Longues';
 import PreEtirees from './pages/PreEtirees';
 import Reserver from './pages/Reserver';
 import BoxBraids from './pages/BoxBraids';
+import Boxbraids from './pages/BoxBraids';
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/service1Details1/1" element={<Service1Details1 />} />
-        <Route path="/boxbraids" element={<BoxBraids />} />
+        <Route path="/boxbraids" element={<Boxbraids />} />
         <Route path="/classiques" element={<Classiques />} />
         <Route path="/courtes" element={<Courtes />} />
         <Route path="/longues" element={<Longues />} />

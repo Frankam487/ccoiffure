@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 const List = () => {
-
-
   return (
     <div className="flex justify-center">
       <div className="cards w-full max-w-lg">
@@ -32,33 +30,46 @@ const List = () => {
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[18px] font-semibold">2. TWIST</h3>
+            <h3 className="text-[18px] font-semibold">3. NKOTLESS BRAIDS</h3>
             <NavLink
-              to="/twist"
+              to="/knotless"
               className="text-white no-underline font-serif bg-gray-900 px-6 py-2 cursor-pointer transition">
               Sélectionner
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[18px] font-semibold">2. TWIST</h3>
+            <h3 className="text-[18px] font-semibold">
+              4. ENLEVER SES TRESSES
+            </h3>
             <NavLink
-              to="/twist"
+              to="/crochet"
               className="text-white no-underline font-serif bg-gray-900 px-6 py-2 cursor-pointer transition">
               Sélectionner
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[18px] font-semibold">2. TWIST</h3>
+            <h3 className="text-[18px] font-semibold">
+              5. SOFT LOCS/ <br />
+              DISTRESSED LOCS
+            </h3>
             <NavLink
-              to="/twist"
+              to="/soft"
               className="text-white  no-underline font-serif bg-gray-900 px-6 py-2 cursor-pointer transition">
               Sélectionner
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[18px] font-semibold">2. TWIST</h3>
+            <h3 className="text-[18px] font-semibold">6. PASSION TWIST</h3>
             <NavLink
-              to="/twist"
+              to="/passion"
+              className="text-white font-serif bg-gray-900 px-6 py-2 cursor-pointer  no-underline transition">
+              Sélectionner
+            </NavLink>
+          </div>
+          <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
+            <h3 className="text-[18px] font-semibold">6. FRENCH CURL BRAIDS</h3>
+            <NavLink
+              to="/french"
               className="text-white font-serif bg-gray-900 px-6 py-2 cursor-pointer  no-underline transition">
               Sélectionner
             </NavLink>

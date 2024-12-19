@@ -12,16 +12,44 @@ import Box from './pages/Box';
 import Twist from './pages/Twist';
 import TwistClassique from "./pages/TwistClassique";
 import TwistCourt from "./pages/TwistCourt";
-import TwistTire from './pages/Twisttire';
-import TwistLong from './pages/TwistLong';
+// import TwistTire from './pages/Twisttire';
+// import TwistLong from './pages/TwistLong';
+// import Nkotless from './pages/Nkotless';
+// import Crochet from './pages/Crochet';
+// import Soft from './pages/Soft';
+// import Passion from './pages/Passion';
+import French from './pages/French';
+import French3 from './pages/French3';
+import French2 from './pages/French2';
+import French1 from './pages/French1';
+import French4 from './pages/French4';
+import Passion from './pages/Passion';
+import Passion2 from './pages/Passion2';
+import Passion4 from './pages/Passion4';
+import Passion3 from './pages/Passion3';
+import Passion1 from './pages/Passion1';
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/twistCourt" element={<TwistCourt />} />
-        <Route path="/twistLong" element={<TwistLong />} />
-        <Route path="/twisttire" element={<TwistTire />} />
+        {/* <Route path="/twistLong" element={<TwistLong />} /> */}
+        {/* <Route path="/knotless" element={<Nkotless />} /> */}
+        {/* <Route path="/crochet" element={<Crochet />} /> */}
+        {/* <Route path="/soft" element={<Soft />} />
+        <Route path="/twisttire" element={<TwistTire />} /> */}
+        <Route path="/passion" element={<Passion />} />
+        <Route path="/passion1" element={<Passion1 />} />
+        <Route path="/passion2" element={<Passion2 />} />
+        <Route path="/passion3" element={<Passion3
+         />} />
+        <Route path="/passion4" element={<Passion4 />} />
+        <Route path="/french" element={<French />} />
+        <Route path="/french1" element={<French1 />} />
+        <Route path="/french2" element={<French2 />} />
+        <Route path="/french3" element={<French3 />} />
+        <Route path="/french4" element={<French4 />} />
         <Route path="/service1Details1/1" element={<Service1Details1 />} />
         <Route path="/boxbraids" element={<Box />} />
         <Route path="/classiques" element={<Classiques />} />

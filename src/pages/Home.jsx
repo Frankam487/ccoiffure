@@ -13,7 +13,7 @@ const Home = () => {
         <h1>
           Bienvenue
           <br />
-          chez nous
+          chez <span>house-beauty</span>
         </h1>
         <div className="consignes-container px-22 w-4/5 ">
           <p className=" font-serif text-[13px] py-20 w-full">
@@ -103,7 +103,7 @@ const Home = () => {
             </h4>
             <h4 className="text-[16px]">À bientôt :)</h4>
           </div>
-          
+
           <List/>
         </div>
         {/* <Reservations /> */}

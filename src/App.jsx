@@ -5,12 +5,13 @@ import Reservations from './pages/Reservations';
 
 import Service1Details1 from './pages/Service1Details1';
 import Reservation from './components/Reservation';
-import Boxbraids from './pages/BoxBraids';
+
 import Classiques from './pages/Classiques';
 import Courtes from './pages/Courtes';
 import Longues from './pages/Longues';
 import PreEtirees from './pages/PreEtirees';
 import Reserver from './pages/Reserver';
+import BoxBraids from './pages/BoxBraids';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/service1Details1/1" element={<Service1Details1 />} />
-        <Route path="/boxbraids" element={<Boxbraids />} />
+        <Route path="/boxbraids" element={<BoxBraids />} />
         <Route path="/classiques" element={<Classiques />} />
         <Route path="/courtes" element={<Courtes />} />
         <Route path="/longues" element={<Longues />} />

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const BoxBraids = () => {
+const Boxbraids = () => {
   return (
     <div className="flex justify-center flex-wrap gap-8 p-8">
       {/* Carte 1 */}
@@ -68,4 +68,4 @@ const BoxBraids = () => {
   );
 };
 
-export default BoxBraids;
+export default Boxbraids;

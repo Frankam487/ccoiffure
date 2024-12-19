@@ -24,7 +24,7 @@ const Classiques = () => {
 
         <div className="text-center">
           <NavLink
-            to="/reservation" // Remplace par la route vers la réservation ou page souhaitée
+            to="/reserver" // Remplace par la route vers la réservation ou page souhaitée
             className="inline-block px-8 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white text-lg font-semibold rounded-lg hover:scale-105 transition-all">
             Réserver maintenant
           </NavLink>

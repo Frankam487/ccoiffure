@@ -24,7 +24,7 @@ const Box = () => {
       title: 'Twists Longs',
       message:
         'Les twists longs, offrant un look audacieux et une grande liberté de style.',
-      route: '/twists-longs',
+      route: '/twistLong',
       gradient: 'from-teal-500 to-purple-500',
     },
     {
@@ -32,7 +32,7 @@ const Box = () => {
       title: 'Twists Pré-étirés',
       message:
         'Des twists avec mèches pré-étirées pour un gain de temps et un confort optimal.',
-      route: '/twists-pre-etires',
+      route: '/twisttire',
       gradient: 'from-yellow-500 to-red-500',
     },
   ]);

@@ -12,6 +12,7 @@ import Box from './pages/Box';
 import Twist from './pages/Twist';
 import TwistClassique from "./pages/TwistClassique";
 import TwistCourt from "./pages/TwistCourt";
+import TwistTire from './pages/Twisttire';
 import TwistLong from './pages/TwistLong';
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/twistCourt" element={<TwistCourt />} />
-        <Route path="/twisttire" element={<Twisttire />} />
+        <Route path="/twistLong" element={<TwistLong />} />
+        <Route path="/twisttire" element={<TwistTire />} />
         <Route path="/service1Details1/1" element={<Service1Details1 />} />
         <Route path="/boxbraids" element={<Box />} />
         <Route path="/classiques" element={<Classiques />} />

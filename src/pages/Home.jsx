@@ -1,11 +1,14 @@
+import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Reservations from "../pages/Reservations";
+import List from "../components/List";
+
 
 const Home = () => {
   return (
     <div className="home">
-      <Header />
+      <div className="logo">
+        <img src="../images/i.jpg" height={200} alt="logo image" />
+      </div>
       <div className="bg-slate-100 home-content">
         <h1>
           Bienvenue
@@ -31,7 +34,7 @@ const Home = () => {
             <li>
               Les couleurs de mèches disponibles sont : 1B, 1, 2 et 4. Si vous
               êtes intéressé(e) par d’autres couleurs de mèches, veuillez nous
-              contacter à l’avance à l'adresse courriel suivante :
+              contacter à l\’avance à l'adresse courriel suivante :
               b.expresssaloon@gmail.com
             </li>
             <li>
@@ -100,8 +103,10 @@ const Home = () => {
             </h4>
             <h4 className="text-[16px]">À bientôt :)</h4>
           </div>
+          
+          <List/>
         </div>
-        <Reservations />
+        {/* <Reservations /> */}
       </div>
       <Footer />
     </div>

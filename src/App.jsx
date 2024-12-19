@@ -8,20 +8,26 @@ import Courtes from './pages/Courtes';
 import Longues from './pages/Longues';
 import PreEtirees from './pages/PreEtirees';
 import Reserver from './pages/Reserver';
-
 import Box from './pages/Box';
-
+import Twist from './pages/Twist';
+import TwistClassique from "./pages/TwistClassique";
+import TwistCourt from "./pages/TwistCourt";
+import TwistLong from './pages/TwistLong';
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/twistCourt" element={<TwistCourt />} />
+        <Route path="/twisttire" element={<Twisttire />} />
         <Route path="/service1Details1/1" element={<Service1Details1 />} />
         <Route path="/boxbraids" element={<Box />} />
         <Route path="/classiques" element={<Classiques />} />
         <Route path="/courtes" element={<Courtes />} />
+        <Route path="/twistClassique" element={<TwistClassique />} />
         <Route path="/longues" element={<Longues />} />
         <Route path="/preEtirees" element={<PreEtirees />} />
+        <Route path="/twist" element={<Twist />} />
         <Route path="/reserver" element={<Reserver />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/reserver" element={<Reservation />} />

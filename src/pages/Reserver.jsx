@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,10 +9,10 @@ const generateDatesForMonth = (month, year) => {
   const startDate = new Date(year, month, 1); // Le 1er jour du mois
   const endDate = new Date(year, month + 1, 0); // Le dernier jour du mois
 
-  // Ajout des dates au tableau avec heures et minutes
+  
   while (startDate <= endDate) {
     const dateObj = new Date(startDate);
-    // Ajout d'heures et minutes, ici on peut choisir des horaires fixes ou les générer dynamiquement
+
     for (let hour = 9; hour < 18; hour++) {
       // De 9h à 18h
       for (let minute = 0; minute < 60; minute += 30) {
@@ -53,9 +53,23 @@ const Reserver = () => {
   const settings = {
     infinite: true,
     centerMode: true,
-    slidesToShow: 3,
+    slidesToShow: 1.5, // Afficher un nombre réduit sur mobile pour plus de visibilité
     focusOnSelect: true,
     arrows: true, // Afficher les flèches de navigation
+    nextArrow: (
+      <div className="slick-arrow slick-next">
+        <span className="text-teal-600 p-4 rounded-full bg-white shadow-xl">
+          ➡️
+        </span>
+      </div>
+    ),
+    prevArrow: (
+      <div className="slick-arrow slick-prev">
+        <span className="text-teal-600 p-4 rounded-full bg-white shadow-xl">
+          ⬅️
+        </span>
+      </div>
+    ),
   };
 
   // Fonction pour formater le jour de la semaine
@@ -70,30 +84,30 @@ const Reserver = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50 p-8">
-      <h1 className="text-3xl font-bold text-teal-600 mb-6">
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-teal-50 via-teal-100 to-teal-200 p-6 md:p-8">
+      <h1 className="text-4xl font-bold text-teal-600 mb-6 animate__animated animate__fadeIn animate__delay-1s text-center">
         Choisissez votre date et heure de rendez-vous
       </h1>
 
       {/* Carrousel de dates */}
-      <Slider {...settings} className="w-full max-w-lg">
+      <Slider {...settings} className="w-full max-w-full">
         {availableDates.map((date, index) => (
           <div key={index} className="flex justify-center">
             <div
               onClick={() => handleDateSelection(date)}
-              className={`cursor-pointer p-6 w-60 h-60 bg-gradient-to-r
-                ${selectedDate && selectedDate.getTime() === date.getTime() ? 'from-teal-400 to-teal-600 text-white' : 'from-gray-300 to-gray-500 text-gray-700'}
-                rounded-lg shadow-lg transform transition-all hover:scale-105 hover:shadow-xl hover:opacity-90 text-center
-                flex flex-col justify-center items-center`}
+              className={`cursor-pointer p-8 md:p-10 lg:p-12 w-full max-w-xs lg:max-w-sm bg-gradient-to-r
+                ${selectedDate && selectedDate.getTime() === date.getTime() ? 'from-teal-500 to-teal-700 text-white' : 'from-gray-300 to-gray-500 text-gray-700'}
+                rounded-lg shadow-2xl transform transition-all hover:scale-105 hover:shadow-lg hover:opacity-90 text-center
+                flex flex-col justify-center items-center animate__animated animate__bounceIn`}
               role="button"
               aria-label={`Sélectionner la date ${date.toLocaleDateString()}`}>
-              <p className="text-lg font-semibold">
+              <p className="text-lg md:text-xl font-semibold">
                 {formatDay(date)} {/* Affiche le jour de la semaine */}
               </p>
-              <p className="text-md">
+              <p className="text-md md:text-lg font-semibold">
                 {date.toLocaleDateString()} {/* Affiche la date */}
               </p>
-              <p className="text-sm mt-2">
+              <p className="text-sm md:text-md mt-2">
                 {formatTime(date)} {/* Affiche l'heure sélectionnée */}
               </p>
             </div>
@@ -102,7 +116,7 @@ const Reserver = () => {
       </Slider>
 
       {/* Bouton de redirection vers l'email */}
-      <div className="mt-8">
+      <div className="mt-8 animate__animated animate__fadeIn animate__delay-2s">
         <button
           onClick={handleEmailRedirection}
           className={`px-8 py-4 text-white font-semibold rounded-lg shadow-lg
@@ -116,7 +130,7 @@ const Reserver = () => {
 
       {/* Message de confirmation si une date est sélectionnée */}
       {selectedDate && (
-        <div className="mt-6 text-center text-xl font-semibold text-teal-600">
+        <div className="mt-6 text-center text-xl font-semibold text-teal-600 animate__animated animate__fadeIn animate__delay-3s">
           <p>
             Vous avez sélectionné le {selectedDate.toLocaleDateString()} à{' '}
             {selectedDate.toLocaleTimeString()}.

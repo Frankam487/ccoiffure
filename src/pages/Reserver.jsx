@@ -3,13 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Fonction pour générer les dates d'un mois spécifique avec jours, heures et minutes
 const generateDatesForMonth = (month, year) => {
   const dates = [];
   const startDate = new Date(year, month, 1); // Le 1er jour du mois
   const endDate = new Date(year, month + 1, 0); // Le dernier jour du mois
 
-  
+
   while (startDate <= endDate) {
     const dateObj = new Date(startDate);
 
@@ -21,7 +20,7 @@ const generateDatesForMonth = (month, year) => {
         dates.push(timeSlot);
       }
     }
-    startDate.setDate(startDate.getDate() + 1); // Incrémente la date d'un jour
+    startDate.setDate(startDate.getDate() + 1);
   }
 
   return dates;
@@ -29,16 +28,14 @@ const generateDatesForMonth = (month, year) => {
 
 const Reserver = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const availableDates = generateDatesForMonth(11, 2024);
 
-  // On génère les dates pour décembre 2024
-  const availableDates = generateDatesForMonth(11, 2024); // Décembre est le mois 11 (0-based)
 
-  // Fonction pour sélectionner une date
   const handleDateSelection = (date) => {
     setSelectedDate(date);
   };
 
-  // Fonction pour générer l'email avec la date choisie
+
   const handleEmailRedirection = () => {
     if (selectedDate) {
       const subject = `Réservation Salon de Coiffure - ${selectedDate.toLocaleDateString()}`;
@@ -65,7 +62,7 @@ const Reserver = () => {
     ),
     prevArrow: (
       <div className="slick-arrow slick-prev">
-        <span className="text-teal-600 p-4 rounded-full bg-white shadow-xl">
+        <span className="text-teal-600 text-[12px] p-4 rounded-full bg-white shadow-xl">
           ⬅️
         </span>
       </div>

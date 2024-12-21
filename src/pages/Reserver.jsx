@@ -1,17 +1,16 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'animate.css';
 
 const generateDatesForMonth = (month, year) => {
   const dates = [];
   const startDate = new Date(year, month, 1); // Le 1er jour du mois
   const endDate = new Date(year, month + 1, 0); // Le dernier jour du mois
 
-
   while (startDate <= endDate) {
     const dateObj = new Date(startDate);
-
     for (let hour = 9; hour < 18; hour++) {
       // De 9h à 18h
       for (let minute = 0; minute < 60; minute += 30) {
@@ -22,19 +21,16 @@ const generateDatesForMonth = (month, year) => {
     }
     startDate.setDate(startDate.getDate() + 1);
   }
-
   return dates;
 };
 
 const Reserver = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const availableDates = generateDatesForMonth(11, 2024);
-
+  const availableDates = generateDatesForMonth(11, 2024); // Exemple pour novembre 2024
 
   const handleDateSelection = (date) => {
     setSelectedDate(date);
   };
-
 
   const handleEmailRedirection = () => {
     if (selectedDate) {
@@ -50,19 +46,19 @@ const Reserver = () => {
   const settings = {
     infinite: true,
     centerMode: true,
-    slidesToShow: 1.5, // Afficher un nombre réduit sur mobile pour plus de visibilité
+    slidesToShow: 1.5,
     focusOnSelect: true,
-    arrows: true, // Afficher les flèches de navigation
+    arrows: true,
     nextArrow: (
       <div className="slick-arrow slick-next">
-        <span className="text-teal-600 p-4 rounded-full bg-white shadow-xl">
+        <span className="text-teal-600 text-xl p-4 rounded-full bg-white shadow-2xl hover:bg-teal-100 transition-all">
           ➡️
         </span>
       </div>
     ),
     prevArrow: (
       <div className="slick-arrow slick-prev">
-        <span className="text-teal-600 text-[12px] p-4 rounded-full bg-white shadow-xl">
+        <span className="text-teal-600 text-xl p-4 rounded-full bg-white shadow-2xl hover:bg-teal-100 transition-all">
           ⬅️
         </span>
       </div>

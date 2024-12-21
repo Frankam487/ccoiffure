@@ -70,7 +70,7 @@ const Home = () => {
             Le solde restant devra être réglé uniquement en espèces le jour du
             rendez-vous. (Le montant du dépôt sera déduit du total final.)
           </p>
-          <h3 className="text-[15px] font-semibold my-8">À NE PAS FAIRE :</h3>
+          <h3 className="text-[19px] font-semibold my-8">À NE PAS FAIRE :</h3>
           <ul>
             <li>
               Se présenter accompagné d’enfants ou d’amis, sauf exception

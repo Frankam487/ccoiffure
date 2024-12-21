@@ -1,5 +1,12 @@
 .home {
   // font-family: 'cursive';
+  .logo{
+    border-radius: 50%;
+    margin: 10px 130px;
+    height: 80px;
+    border: none;
+    background: url(../../../public/)center/cover;
+  }
   .home-content {
     background: linear-gradient(to bottom, #ffffff , rgb(180, 191, 201) 110%);
 
@@ -19,7 +26,5 @@
     font-size: 4rem;
     color: #2e3030;
   }
-  .consignes-container {
 
-  }
 }

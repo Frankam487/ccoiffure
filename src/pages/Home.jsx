@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 import List from "../components/List";
+import Header from "../components/Header";
 
 
 const Home = () => {
   return (
     <div className="home">
-      <div className="logo">
-        <img src="../images/i.jpg" height={200} alt="logo image" />
-      </div>
+      <Header/>
       <div className="bg-slate-100 home-content">
         <h1>
           Bienvenue

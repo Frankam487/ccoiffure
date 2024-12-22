@@ -5,7 +5,7 @@ const French3 = () => {
     <CoiffureDetail
       image="../../public/ok.jpg"
       title="Fulani Large"
-      description="Les Fulani Large sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
+      description="Les Fulani Large sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir." 
       features={[
         'Idéales pour un entretien facile',
         'Style moderne et élégant',

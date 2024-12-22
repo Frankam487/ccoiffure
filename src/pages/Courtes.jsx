@@ -7,7 +7,7 @@ const Courtes = () => {
         {/* Section Image */}
         <div className="flex justify-center mb-6">
           <img
-            src="../images/woman-1853957.jpg"
+            src="../../public/courte.jpg"
             alt="Box Braids Longues"
             className="w-full h-96 object-cover rounded-lg shadow-xl"
           />
@@ -15,7 +15,7 @@ const Courtes = () => {
 
 
         <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-4">
-          Box Braids Courtes
+          Box Braids Small
         </h2>
 
         <p className="text-lg text-gray-700 text-center mb-8">

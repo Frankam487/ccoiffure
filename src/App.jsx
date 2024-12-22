@@ -34,6 +34,7 @@ import Nkotless2 from './pages/Nkotless2';
 import Nkotless4 from './pages/Nkotless4';
 import Nkotless3 from './pages/Nkotless3';
 import Contact from './pages/Contact';
+import TwistLong from './pages/TwistLong';
 const App = () => {
   return (
     <BrowserRouter>
@@ -41,20 +42,19 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/twistCourt" element={<TwistCourt />} />
-        {/* <Route path="/twistLong" element={<TwistLong />} /> */}
+        <Route path="/twistLong" element={<TwistLong />} />
         <Route path="/knotless" element={<Nkotless />} />
-        <Route path="/knotless1" element={<Nkotless1 />} />
-        <Route path="/knotless2" element={<Nkotless2 />} />
-        <Route path="/knotless3" element={<Nkotless3 />} />
-        <Route path="/knotless4" element={<Nkotless4 />} />
+        <Route path="/nkotless1" element={<Nkotless1 />} />
+        <Route path="/nkotless2" element={<Nkotless2 />} />
+        <Route path="/nkotless3" element={<Nkotless3 />} />
+        <Route path="/nkotless4" element={<Nkotless4 />} />
         {/* <Route path="/crochet" element={<Crochet />} /> */}
         {/* <Route path="/soft" element={<Soft />} />
         <Route path="/twisttire" element={<TwistTire />} /> */}
         <Route path="/passion" element={<Passion />} />
         <Route path="/passion1" element={<Passion1 />} />
         <Route path="/passion2" element={<Passion2 />} />
-        <Route path="/passion3" element={<Passion3
-         />} />
+        <Route path="/passion3" element={<Passion3 />} />
         <Route path="/passion4" element={<Passion4 />} />
         <Route path="/french" element={<French />} />
         <Route path="/french1" element={<French1 />} />

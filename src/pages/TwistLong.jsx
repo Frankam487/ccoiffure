@@ -3,9 +3,9 @@ import CoiffureDetail from '../components/CoiffureDetail';
 const TwistLong = () => {
   return (
     <CoiffureDetail
-      image="../../public/pic3.jpg"
-      title="Twists Court" // Titre
-      description="Les Twists Classiquesd sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
+      image="../../public/tlarge.jpg"
+      title="Twists Large" // Titre
+      description="Les Twists Large sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
       features={[
         'Idéales pour un entretien facile',
         'Style moderne et élégant',

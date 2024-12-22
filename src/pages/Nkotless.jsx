@@ -5,36 +5,29 @@ const Nkotless = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      title: 'Twists Classiques',
+      title: 'Knotless Medium',
       message:
-        'Les twists classiques, une coiffure élégante et légère pour un look naturel.',
+        'Les Knotless Medium , une coiffure élégante et légère pour un look naturel.',
       route: '/nkotless1',
       gradient: 'from-pink-500 to-indigo-500',
     },
     {
       id: 2,
-      title: 'Twists Court',
+      title: 'Knotless Small',
       message:
-        'Les twists courts, parfaits pour un entretien facile tout en gardant un look moderne.',
+        'Les Knotless Small, parfaits pour un entretien facile tout en gardant un look moderne.',
       route: '/nkotless2',
       gradient: 'from-blue-500 to-green-500',
     },
     {
       id: 3,
-      title: 'Twists Longs',
+      title: 'Knotless Large',
       message:
-        'Les twists longs, offrant un look audacieux et une grande liberté de style.',
+        'Les Knotless Large, offrant un look audacieux et une grande liberté de style.',
       route: '/nkotless3',
       gradient: 'from-teal-500 to-purple-500',
     },
-    {
-      id: 4,
-      title: 'Twists Pré-étirés',
-      message:
-        'Des twists avec mèches pré-étirées pour un gain de temps et un confort optimal.',
-      route: '/knotless4',
-      gradient: 'from-yellow-500 to-red-500',
-    },
+    
   ]);
 
   return (

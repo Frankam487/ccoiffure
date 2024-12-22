@@ -5,7 +5,7 @@ const Box = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      title: 'Twists Classiques',
+      title: 'Twists Medium',
       message:
         'Les twists classiques, une coiffure élégante et légère pour un look naturel.',
       route: '/twistClassique',
@@ -13,7 +13,7 @@ const Box = () => {
     },
     {
       id: 2,
-      title: 'Twists Court',
+      title: 'Twists Small',
       message:
         'Les twists courts, parfaits pour un entretien facile tout en gardant un look moderne.',
       route: '/twistCourt',
@@ -21,20 +21,13 @@ const Box = () => {
     },
     {
       id: 3,
-      title: 'Twists Longs',
+      title: 'Twists Large',
       message:
-        'Les twists longs, offrant un look audacieux et une grande liberté de style.',
+        'Les twists large, offrant un look audacieux et une grande liberté de style.',
       route: '/twistLong',
       gradient: 'from-teal-500 to-purple-500',
     },
-    {
-      id: 4,
-      title: 'Twists Pré-étirés',
-      message:
-        'Des twists avec mèches pré-étirées pour un gain de temps et un confort optimal.',
-      route: '/twisttire',
-      gradient: 'from-yellow-500 to-red-500',
-    },
+    
   ]);
 
   return (

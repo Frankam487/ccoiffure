@@ -5,7 +5,7 @@ const Box = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      title: 'Box braids Men',
+      title: 'Medium',
       message:
         'Les tresses box classiques, idéales pour un look naturel et élégant.',
       route: '/classiques',
@@ -13,7 +13,7 @@ const Box = () => {
     },
     {
       id: 2,
-      title: 'Box Braids Courtes',
+      title: 'Box Braids Small',
       message:
         'Tresses box braids plus courtes, parfaites pour un entretien facile et rapide.',
       route: '/courtes',
@@ -21,9 +21,9 @@ const Box = () => {
     },
     {
       id: 3,
-      title: 'Box Braids Longues',
+      title: 'Box Braids Large',
       message:
-        'Des box braids longues et volumineuses pour un style audacieux.',
+        'Des box braids large et volumineuses pour un style audacieux.',
       route: '/longues',
       gradient: 'from-teal-500 to-purple-500',
     },
@@ -32,7 +32,7 @@ const Box = () => {
 
   return (
     <div className="flex justify-center flex-wrap gap-8 p-8">
-      
+
       {data.map(({ id, title, message, route, gradient }) => (
         <div
           key={id}

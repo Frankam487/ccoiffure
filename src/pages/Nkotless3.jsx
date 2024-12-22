@@ -3,9 +3,9 @@ import CoiffureDetail from '../components/CoiffureDetail'; // Importation du com
 const Nkotless1 = () => {
   return (
     <CoiffureDetail
-      image="../../public/homme.jpg"
-      title="Nkotless Braids Long"
-      description="Les Twists Courtes sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
+      image="../../public/klarge.jpg"
+      title="Nkotless Braids Large"
+      description="Les Nkotless Braids large sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
       features={[
         'Idéales pour un entretien facile',
         'Style moderne et élégant',

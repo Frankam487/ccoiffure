@@ -7,17 +7,17 @@ const Longues = () => {
         {/* Section Image */}
         <div className="flex justify-center mb-6">
           <img
-            src="../images/woman-1853957.jpg"
+            src="../../public/blarge.jpg"
             alt="Box Braids Longues"
             className="w-full h-96 object-cover rounded-lg shadow-xl"
           />
         </div>
         <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-4">
-          Box Braids Longues
+          Box Braids Large
         </h2>
 
         <p className="text-lg text-gray-700 text-center mb-8">
-          Les Box Braids Longues sont parfaites pour celles qui recherchent une
+          Les Box Braids Large sont parfaites pour celles qui recherchent une
           coiffure audacieuse et stylée. Elles offrent une élégance intemporelle
           et peuvent être portées de différentes manières pour s'adapter à
           toutes vos envies.

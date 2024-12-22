@@ -33,11 +33,13 @@ import Nkotless1 from './pages/Nkotless1';
 import Nkotless2 from './pages/Nkotless2';
 import Nkotless4 from './pages/Nkotless4';
 import Nkotless3 from './pages/Nkotless3';
+import Contact from './pages/Contact';
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/twistCourt" element={<TwistCourt />} />
         {/* <Route path="/twistLong" element={<TwistLong />} /> */}
         <Route path="/knotless" element={<Nkotless />} />

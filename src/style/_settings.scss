@@ -18,13 +18,12 @@ html.dark {
   background-color: #121212;
   color: #ffffff;
 }
-/* Dans index.css, personnalisez les couleurs en mode sombre */
+
 .dark {
-  background-color: #121212; /* Fond sombre */
-  color: #ffffff; /* Texte clair */
+  background-color: #121212;
+  color: #ffffff;
 }
 
-/* Exemple de personnalisation d'éléments spécifiques en mode sombre */
 .dark .bg-gradient-to-r {
   background: linear-gradient(to right, #333333, #555555);
 }

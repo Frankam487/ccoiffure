@@ -2,12 +2,36 @@ import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 import List from "../components/List";
 import Header from "../components/Header";
+import { useEffect, useState } from "react";
 
 
 const Home = () => {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+    useEffect(() => {
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      setIsDarkMode(prefersDark);
+    }, []);
+
+    // Changer le mode sombre en fonction de l'état
+    const toggleDarkMode = () => {
+      setIsDarkMode(!isDarkMode);
+    };
+
+    // Appliquer la classe 'dark' sur le body
+    useEffect(() => {
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }, [isDarkMode]);
   return (
-    <div className="home">
-      <Header/>
+    <div className="home ">
+      <Header />
       <div className="bg-slate-100 home-content">
         <h1>
           Bienvenue
@@ -103,9 +127,10 @@ const Home = () => {
             <h4 className="text-[16px]">À bientôt :)</h4>
           </div>
 
-          <List/>
+          <List />
         </div>
         {/* <Reservations /> */}
+        <button onClick={() => toggleDarkMode()}>ok</button>
       </div>
       <Footer />
     </div>

@@ -5,7 +5,7 @@ const Passion = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      title: 'Passion Twist Classiques',
+      title: 'Fulani Small',
       message:
         'Les twists classiques, une coiffure élégante et légère pour un look naturel.',
       route: '/passion1',
@@ -13,7 +13,7 @@ const Passion = () => {
     },
     {
       id: 2,
-      title: 'Passion Twist Court',
+      title: 'Fulani Medium',
       message:
         'Les twists courts, parfaits pour un entretien facile tout en gardant un look moderne.',
       route: '/passion2',
@@ -21,19 +21,11 @@ const Passion = () => {
     },
     {
       id: 3,
-      title: 'Passion Twist Long',
+      title: 'Fulani Large',
       message:
-        'Les twists longs, offrant un look audacieux et une grande liberté de style.',
+        'Les Fulani Large, offrant un look audacieux et une grande liberté de style.',
       route: '/passion3',
       gradient: 'from-teal-500 to-purple-500',
-    },
-    {
-      id: 4,
-      title: 'Passion Twist Pré-étirés',
-      message:
-        'Des twists avec mèches pré-étirées pour un gain de temps et un confort optimal.',
-      route: '/passion4',
-      gradient: 'from-yellow-500 to-red-500',
     },
   ]);
 

@@ -35,6 +35,11 @@ import Nkotless4 from './pages/Nkotless4';
 import Nkotless3 from './pages/Nkotless3';
 import Contact from './pages/Contact';
 import TwistLong from './pages/TwistLong';
+import Crochet from './pages/Crochet';
+import Soft from './pages/Soft';
+import Soft1 from './pages/Soft1';
+import Soft2 from './pages/Soft2';
+import Soft3 from './pages/Soft3';
 const App = () => {
   return (
     <BrowserRouter>
@@ -48,10 +53,14 @@ const App = () => {
         <Route path="/nkotless2" element={<Nkotless2 />} />
         <Route path="/nkotless3" element={<Nkotless3 />} />
         <Route path="/nkotless4" element={<Nkotless4 />} />
-        {/* <Route path="/crochet" element={<Crochet />} /> */}
-        {/* <Route path="/soft" element={<Soft />} />
-        <Route path="/twisttire" element={<TwistTire />} /> */}
+        <Route path="/crochet" element={<Crochet />} />
+        <Route path="/soft" element={<Soft />} />
+
+        {/* <Route path="/twisttire" element={<TwistTire />} /> */}
         <Route path="/passion" element={<Passion />} />
+        <Route path="/soft1" element={<Soft1 />} />
+        <Route path="/soft2" element={<Soft2 />} />
+        <Route path="/soft3" element={<Soft3 />} />
         <Route path="/passion1" element={<Passion1 />} />
         <Route path="/passion2" element={<Passion2 />} />
         <Route path="/passion3" element={<Passion3 />} />

@@ -5,36 +5,29 @@ const French = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      title: 'French Curl Classiques',
+      title: 'Fulani Small',
       message:
-        'Les twists classiques, une coiffure élégante et légère pour un look naturel.',
+        'Les Fulani Small, une coiffure élégante et légère pour un look naturel.',
       route: '/french1',
       gradient: 'from-pink-500 to-indigo-500',
     },
     {
       id: 2,
-      title: 'French Curl Court',
+      title: 'Fulani Medium',
       message:
-        'Les twists courts, parfaits pour un entretien facile tout en gardant un look moderne.',
+        'Les Fulani Medium, parfaits pour un entretien facile tout en gardant un look moderne.',
       route: '/french2',
       gradient: 'from-blue-500 to-green-500',
     },
     {
       id: 3,
-      title: 'French Curl Long',
+      title: 'Fulani Large',
       message:
-        'Les twists longs, offrant un look audacieux et une grande liberté de style.',
+        'Les Fulani Large , offrant un look audacieux et une grande liberté de style.',
       route: '/french3',
       gradient: 'from-teal-500 to-purple-500',
     },
-    {
-      id: 4,
-      title: 'French Curl Pré-étirés',
-      message:
-        'Des twists avec mèches pré-étirées pour un gain de temps et un confort optimal.',
-      route: '/french4',
-      gradient: 'from-yellow-500 to-red-500',
-    },
+
   ]);
 
   return (

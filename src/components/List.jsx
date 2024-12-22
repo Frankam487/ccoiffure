@@ -47,8 +47,8 @@ const List = () => {
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
             <h3 className="text-[12px] font-bold">
-              5. SOFT LOCS/ <br />
-              DISTRESSED LOCS
+              5. LOCS MEN <br />
+
             </h3>
             <NavLink
               to="/soft"
@@ -57,7 +57,7 @@ const List = () => {
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[12px] font-bold">6. PASSION TWIST</h3>
+            <h3 className="text-[12px] font-bold">6. FULANI BRAID MEN</h3>
             <NavLink
               to="/passion"
               className="text-white font-serif bg-gray-900 px-6 py-2 cursor-pointer  no-underline transition">
@@ -65,7 +65,7 @@ const List = () => {
             </NavLink>
           </div>
           <div className="flex items-center justify-between my-4 p-3 text-black border-b border-gray-300">
-            <h3 className="text-[12px] font-bold">6. FRENCH CURL BRAIDS</h3>
+            <h3 className="text-[12px] font-bold">6. FULANI WOMEN</h3>
             <NavLink
               to="/french"
               className="text-white font-serif bg-gray-900 px-6 py-2 cursor-pointer  no-underline transition">

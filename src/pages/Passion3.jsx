@@ -3,9 +3,9 @@ import CoiffureDetail from '../components/CoiffureDetail'; // Importation du com
 const Passion3 = () => {
   return (
     <CoiffureDetail
-      image="../../public/homme.jpg"
-      title="Twists Classique"
-      description="Les Twists Courtes sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
+      image="../../public/fl.jpg"
+      title="Fulani Large"
+      description="Les 'Fulani Large' sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
       features={[
         'Idéales pour un entretien facile',
         'Style moderne et élégant',

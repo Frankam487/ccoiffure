@@ -1,11 +1,11 @@
 import CoiffureDetail from '../components/CoiffureDetail'; // Importation du composant réutilisable
 
-const Passion1 = () => {
+const Soft1 = () => {
   return (
     <CoiffureDetail
-      image="../../public/homme.jpg"
-      title="Fulani Small"
-      description="Les Fulani Courtes sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
+      image="../../public/sSmall.jpg"
+      title="Locs Small"
+      description="Les Locs Courtes sont parfaites pour un look moderne et élégant, tout en étant faciles à entretenir."
       features={[
         'Idéales pour un entretien facile',
         'Style moderne et élégant',
@@ -17,4 +17,4 @@ const Passion1 = () => {
   );
 };
 
-export default Passion1;
+export default Soft1;

@@ -26,12 +26,13 @@ const generateDatesForMonth = (month, year) => {
 
 const Reserver = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const availableDates = generateDatesForMonth(11, 2024); 
+  const availableDates = generateDatesForMonth(11, 2024);
 
   const handleDateSelection = (date) => {
     setSelectedDate(date);
   };
 
+  
   const handleEmailRedirection = () => {
     if (selectedDate) {
       const subject = `Réservation Salon de Coiffure - ${selectedDate.toLocaleDateString()}`;

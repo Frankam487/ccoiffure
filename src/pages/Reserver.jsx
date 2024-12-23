@@ -26,7 +26,7 @@ const generateDatesForMonth = (month, year) => {
 
 const Reserver = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const availableDates = generateDatesForMonth(11, 2024); // Exemple pour novembre 2024
+  const availableDates = generateDatesForMonth(11, 2024); 
 
   const handleDateSelection = (date) => {
     setSelectedDate(date);

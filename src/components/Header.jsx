@@ -1,5 +1,3 @@
-
-
 // import React, { useState } from 'react';
 
 // const Header = () => {
@@ -95,13 +93,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-white shadow-lg fixed top-0 left-0 w-full z-50">
-      <div className="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">oir 
+    <header className="bg-gradient-to-r from-gray-500 via-teal-500 to-gray-500 text-white shadow-lg fixed top-0 left-0 w-full z-50">
+      <div className="max-w-screen-xl mx-auto px-6 py-2 flex justify-between items-center">
+
         {/* Logo */}
         <div className="text-3xl font-bold tracking-wide">
           <span className="text-4xl font-extrabold">House</span>Beauty
         </div>
-
         {/* Menu Icon (Mobile) */}
         <button
           className="lg:hidden p-2 text-white focus:outline-none"
@@ -120,14 +118,15 @@ const Header = () => {
             />
           </svg>
         </button>
-
         {/* Menu (Desktop) */}
         <nav className="hidden lg:flex space-x-8">
-          <NavLink to="/"
+          <NavLink
+            to="/"
             className="hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-4 py-2 rounded-lg">
             Acceuil
           </NavLink>
-          <NavLink to='/about'
+          <NavLink
+            to="/about"
             href="#about"
             className="hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-4 py-2 rounded-lg">
             About
@@ -137,7 +136,8 @@ const Header = () => {
             className="hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-4 py-2 rounded-lg">
             Services
           </a>
-          <NavLink to="/contact"
+          <NavLink
+            to="/contact"
             className="hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-4 py-2 rounded-lg">
             Contact
           </NavLink>
@@ -149,26 +149,26 @@ const Header = () => {
         className={`lg:hidden bg-gray-800 bg-opacity-80 fixed top-0 left-0 w-full h-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'block' : 'hidden'}`}
         onClick={() => setIsMenuOpen(false)}>
         <div className="flex flex-col items-center justify-center space-y-6 mt-24">
-          <a
-            href="#home"
+          <NavLink
+            to="/"
             className="text-white text-lg hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-6 py-2 rounded-lg">
             Home
-          </a>
-          <a
-            href="#about"
+          </NavLink>
+          <NavLink
+            to="/about"
             className="text-white text-lg hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-6 py-2 rounded-lg">
             About
-          </a>
-          <a
-            href="#services"
+          </NavLink>
+          <NavLink
+            to="/about"
             className="text-white text-lg hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-6 py-2 rounded-lg">
             Services
-          </a>
-          <a
-            href="#contact"
+          </NavLink>
+          <NavLink
+            to="/contact"
             className="text-white text-lg hover:scale-110 transform transition duration-300 ease-in-out hover:text-yellow-300 px-6 py-2 rounded-lg">
             Contact
-          </a>
+          </NavLink>
         </div>
       </div>
     </header>
@@ -176,4 +176,3 @@ const Header = () => {
 };
 
 export default Header;
-

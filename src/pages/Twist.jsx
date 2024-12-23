@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const Box = () => {
+const Twist = () => {
   const [data, setData] = useState([
     {
       id: 1,
@@ -27,26 +28,39 @@ const Box = () => {
       route: '/twistLong',
       gradient: 'from-teal-500 to-purple-500',
     },
-    
   ]);
 
   return (
     <div className="flex justify-center flex-wrap gap-8 p-8">
       {data.map(({ id, title, message, route, gradient }) => (
-        <div
+        <motion.div
           key={id}
-          className="bg-white p-6 max-w-xs w-full rounded-lg shadow-md hover:shadow-xl transition-all">
-          <h3 className="text-xl font-semibold text-center mb-4">{title}</h3>
-          <p className="text-gray-600 text-center mb-4">{message}</p>
+          className="bg-white p-6 max-w-xs w-full rounded-lg hover:shadow-xl transition-all"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: id * 0.2 }}>
+          <motion.h3
+            className="text-xl font-semibold text-center mb-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}>
+            {title}
+          </motion.h3>
+          <motion.p
+            className="text-gray-600 text-center mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}>
+            {message}
+          </motion.p>
           <NavLink
             to={route}
             className={`inline-block w-full text-center py-2 bg-gradient-to-r ${gradient} text-white rounded-lg hover:scale-105 transition-all`}>
             Voir plus
           </NavLink>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
 };
 
-export default Box;
+export default Twist;
